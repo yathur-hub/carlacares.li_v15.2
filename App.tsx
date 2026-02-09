@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Header from './components/Header';
 import Home from './pages/Home';
 import CareAndSupport from './pages/CareAndSupport';
@@ -11,18 +11,48 @@ import Footer from './components/Footer';
 
 type ViewType = 'home' | 'care' | 'billing' | 'about' | 'referrers' | 'imprint' | 'privacy';
 
+// Erkennung restriktiver Umgebungen (Google AI Studio / Blob-URLs)
+const isBlobEnvironment = typeof window !== 'undefined' && (window.location.protocol === 'blob:' || window.location.href.startsWith('blob:'));
+
 const App: React.FC = () => {
-  // Start immer auf Home
   const [view, setView] = useState<ViewType>('home');
 
-  const scrollToSection = (id: string) => {
+  // --- Safe History Helpers ---
+  const safeSetHash = useCallback((hash: string) => {
+    if (isBlobEnvironment) return;
+    try {
+      window.location.hash = hash;
+    } catch (e) {
+      console.warn("Navigation: window.location.hash restricted", e);
+    }
+  }, []);
+
+  const safeReplaceState = useCallback((url: string) => {
+    if (isBlobEnvironment) return;
+    try {
+      window.history.replaceState(null, '', url);
+    } catch (e) {
+      console.warn("Navigation: history.replaceState restricted", e);
+    }
+  }, []);
+
+  const safePushState = useCallback((url: string) => {
+    if (isBlobEnvironment) return;
+    try {
+      window.history.pushState(null, '', url);
+    } catch (e) {
+      console.warn("Navigation: history.pushState restricted", e);
+    }
+  }, []);
+
+  const scrollToSection = useCallback((id: string) => {
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }, 150);
-  };
+  }, []);
 
   useEffect(() => {
     const handleHash = () => {
@@ -66,57 +96,58 @@ const App: React.FC = () => {
       }
     };
 
-    // Initialisierung: URL bereinigen und Home erzwingen
+    // Initialisierung: Wir erzwingen 'home' beim ersten Laden konsequent
     const initialHash = window.location.hash;
-    if (initialHash && initialHash !== '#kontakt') {
-      // Wenn wir nicht auf den Kontakt-Anker wollen, säubern wir die URL für den nächsten Refresh
-      window.history.replaceState(null, '', window.location.pathname);
-      setView('home');
-    } else if (initialHash === '#kontakt') {
-      setView('home');
-      scrollToSection('kontakt');
+    
+    // Unabhängig vom Hash: Zuerst Home setzen
+    setView('home');
+
+    if (!isBlobEnvironment) {
+      // Wenn ein tiefer Link existierte (außer Kontakt), bereinigen wir die URL,
+      // damit beim Neuladen nicht wieder die Unterseite "aufspringt"
+      if (initialHash && initialHash !== '#kontakt') {
+        safeReplaceState(window.location.pathname);
+      } else if (initialHash === '#kontakt') {
+        scrollToSection('kontakt');
+      }
     } else {
-      setView('home');
+      // Spezialfall Blob (AI Studio Vorschau)
+      if (initialHash === '#kontakt') {
+        scrollToSection('kontakt');
+      }
     }
 
-    // Listener für Navigation während der Sitzung
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
+  }, [safeReplaceState, scrollToSection]);
 
   const navigateTo = (newView: ViewType) => {
+    // 1. URL Side-Effect (nur wenn erlaubt)
     switch (newView) {
-      case 'care':
-        window.location.hash = 'pflege-begleitung';
-        break;
-      case 'billing':
-        window.location.hash = 'abrechnung';
-        break;
-      case 'about':
-        window.location.hash = 'ueber-mich';
-        break;
-      case 'referrers':
-        window.location.hash = 'fuer-zuweisende';
-        break;
-      case 'imprint':
-        window.location.hash = 'impressum';
-        break;
-      case 'privacy':
-        window.location.hash = 'datenschutz';
-        break;
+      case 'care': safeSetHash('pflege-begleitung'); break;
+      case 'billing': safeSetHash('abrechnung'); break;
+      case 'about': safeSetHash('ueber-mich'); break;
+      case 'referrers': safeSetHash('fuer-zuweisende'); break;
+      case 'imprint': safeSetHash('impressum'); break;
+      case 'privacy': safeSetHash('datenschutz'); break;
       default:
-        window.location.hash = '';
-        window.history.pushState("", document.title, window.location.pathname + window.location.search);
-        setView('home');
+        safeSetHash('');
+        safePushState(window.location.pathname + window.location.search);
         window.scrollTo(0, 0);
     }
+    
+    // 2. State Update (immer ausführen)
+    setView(newView);
+    if (newView !== 'home') window.scrollTo(0, 0);
   };
 
   const handleNavigateToKontakt = () => {
     if (view === 'home') {
       scrollToSection('kontakt');
     } else {
-      window.location.hash = 'kontakt';
+      safeSetHash('kontakt');
+      setView('home');
+      scrollToSection('kontakt');
     }
   };
 

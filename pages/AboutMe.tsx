@@ -38,7 +38,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ onNavigateToKontakt }) => {
       <section className="py-24 px-6 bg-secondary/30 border-y border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative">
-             <div className="aspect-[4/5] bg-white rounded-[60px] p-4 shadow-xl border border-gray-50 overflow-hidden">
+             <div className="aspect-[4/5] bg-white rounded-[60px] p-4 shadow-xl border border-gray-100 overflow-hidden">
                 <img 
                   src={carlaImageUrl} 
                   alt="Carla Vanessa Carcaiso" 
