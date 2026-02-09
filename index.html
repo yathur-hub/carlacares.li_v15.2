@@ -9,9 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-        // Kompatibilitäts-Shim für Module, die process.env erwarten
         window.process = { env: { NODE_ENV: 'production' } };
-
         tailwind.config = {
             theme: {
                 extend: {
@@ -30,21 +28,9 @@
         }
     </script>
     <style>
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 6rem;
-        }
-        body {
-            background-color: #ffffff;
-            color: #545454;
-        }
-        h1, h2, h3 {
-            color: #333f07;
-            font-weight: 700;
-        }
-        p {
-            line-height: 1.7;
-        }
+        html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+        body { background-color: #ffffff; color: #545454; margin: 0; padding: 0; }
+        #root { min-height: 100vh; display: flex; flex-direction: column; }
     </style>
 <script type="importmap">
 {
@@ -62,5 +48,6 @@
 </head>
 <body class="font-sans antialiased text-textDark">
     <div id="root"></div>
+    <!-- Der automatische Import von index.tsx wird durch die Umgebung gehandhabt -->
 </body>
 </html>
