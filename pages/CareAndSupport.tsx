@@ -67,55 +67,92 @@ const CareAndSupport: React.FC<CareAndSupportProps> = ({ onNavigateToKontakt }) 
             </div>
           </div>
           
-          {/* V1.3: Interaktives Self-Assessment anstelle des statischen Icons */}
           <div className="relative w-full">
             <SelfAssessment />
           </div>
         </div>
       </section>
 
-      {/* Sektion: Unterstützung in belastenden Phasen */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
-          <div className="order-2 lg:order-1 space-y-8">
-             <div className="bg-accentGreen p-10 md:p-12 rounded-[50px] shadow-2xl text-white">
-                <h3 className="text-xl font-bold mb-6 uppercase tracking-widest text-white/50">Pflegerische Begleitung kann beinhalten:</h3>
-                <ul className="space-y-6">
-                  {[
-                    "Unterstützung im Umgang mit belastenden Symptomen im Alltag",
-                    "Begleitung in Krisensituationen",
-                    "Förderung von Orientierung und Sicherheit",
-                    "Unterstützung bei der Medikamenteneinnahme nach ärztlicher Anordnung",
-                    "Erkennen von Frühwarnzeichen und rechtzeitiges Gegensteuern"
-                  ].map((item, i) => (
-                    <li key={i} className="flex gap-4 items-start text-lg border-b border-white/10 pb-4 last:border-0">
-                      <div className="w-2 h-2 rounded-full bg-accentBrown mt-2.5 flex-shrink-0"></div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-8 pt-8 border-t border-white/10 text-sm font-bold opacity-70">
-                  Die Pflege arbeitet dabei handlungsorientiert im Hier und Jetzt.
-                </p>
-             </div>
+      {/* Sektion: Pflegerische Begleitung (Das neue detaillierte Leistungsangebot) */}
+      <section className="py-24 px-6 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <div className="max-w-4xl space-y-6">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-accentGreen tracking-tight">Pflegerische Begleitung</h2>
+            <p className="text-xl text-textDark/80 leading-relaxed font-medium">
+              Die pflegerische Begleitung unterstützt Menschen mit psychischen Belastungen dabei, ihren Alltag stabiler, sicherer und selbstbestimmter zu gestalten. 
+              Sie orientiert sich an den individuellen Bedürfnissen und vorhandenen Ressourcen und arbeitet handlungsorientiert im Hier und Jetzt.
+            </p>
           </div>
-          <div className="order-1 lg:order-2 space-y-8">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-accentGreen tracking-tight">Unterstützung in belastenden Phasen</h2>
-            <div className="space-y-6 text-lg text-textDark/70 leading-relaxed">
-              <p>
-                Psychische Erkrankungen verlaufen oft nicht konstant. In belastenden oder instabilen Phasen kann ambulante psychiatrische Pflege stabilisierend wirken.
-              </p>
-              <div className="p-6 bg-secondary/30 rounded-2xl border-l-4 border-accentBrown">
-                 <p className="text-accentGreen font-bold">
-                   "Sicherheit gewinnen, wenn Symptome den Alltag erschweren."
-                 </p>
+
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+            {/* Linke Spalte: Begleitinhalte */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-accentBrown">Leistungsspektrum</h3>
+                <p className="text-lg font-bold text-accentGreen">Die Begleitung kann unter anderem beinhalten:</p>
+              </div>
+              <ul className="space-y-5">
+                {[
+                  "Unterstützung im Umgang mit belastenden psychischen Symptomen im Alltag",
+                  "Begleitung, Stabilisierung und Entlastung in akuten Krisensituationen",
+                  "Förderung von Orientierung, Tagesstruktur und innerer Sicherheit",
+                  "Unterstützung bei der Medikamenteneinnahme nach ärztlicher Anordnung",
+                  "Wahrnehmen, Einordnen und frühzeitiges Erkennen von Frühwarnzeichen",
+                  "Gemeinsames Erarbeiten von alltagsnahen Strategien zur rechtzeitigen Stabilisierung"
+                ].map((text, i) => (
+                  <li key={i} className="flex gap-5 items-start bg-secondary/40 p-5 rounded-2xl border border-gray-100/50">
+                    <span className="w-8 h-8 rounded-full bg-accentGreen text-white flex items-center justify-center font-bold shrink-0 text-xs">0{i+1}</span>
+                    <span className="text-textDark font-semibold leading-tight">{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Rechte Spalte: Methoden */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-accentBrown">Methoden & Ansätze</h3>
+                <p className="text-lg font-bold text-accentGreen">Ergänzend fliessen strukturierende, ressourcen- und handlungsorientierte Methoden ein:</p>
+              </div>
+              <div className="space-y-6">
+                {[
+                  {
+                    title: "Sozialkompetenztraining",
+                    desc: "Elemente zur Stärkung von Kommunikations-, Abgrenzungs- und Beziehungskompetenzen."
+                  },
+                  {
+                    title: "Dialektisch-Behaviorale Therapie (DBT)",
+                    desc: "Fertigkeiten und Übungen, insbesondere aus dem Bereich Achtsamkeit, zur Emotionsregulation, Stressbewältigung und Stabilisierung im Alltag."
+                  },
+                  {
+                    title: "Verhaltenstherapeutisch orientierte Massnahmen",
+                    desc: "An den Alltag und die individuellen Ziele angepasste Strategien."
+                  },
+                  {
+                    title: "Komplementäre Methoden",
+                    desc: "Auf Wunsch Einsatz von Aromatherapie oder Akupunktur zur Förderung von Entspannung, Körperwahrnehmung und Selbstregulation."
+                  }
+                ].map((item, i) => (
+                  <div key={i} className="group border-l-4 border-accentBrown/20 hover:border-accentBrown pl-6 py-2 transition-all">
+                    <h4 className="font-bold text-accentGreen mb-2 group-hover:text-accentBrown transition-colors">{item.title}</h4>
+                    <p className="text-sm text-textDark/70 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="pt-8">
+                <div className="bg-accentGreen p-8 rounded-[32px] shadow-xl text-white">
+                  <p className="text-lg font-bold leading-relaxed">
+                    Ziel der pflegerischen Begleitung ist es, Sicherheit zu vermitteln, Selbstwirksamkeit zu stärken und Menschen dabei zu unterstützen, ihren Alltag möglichst eigenständig und stabil zu bewältigen.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Sektion: Unterstützung im täglichen Leben */}
+      {/* Sektion: Unterstützung im täglichen Leben (Cards) */}
       <section className="py-24 px-6 bg-secondary/20">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="max-w-3xl space-y-6">
@@ -181,26 +218,29 @@ const CareAndSupport: React.FC<CareAndSupportProps> = ({ onNavigateToKontakt }) 
       {/* Sektion: Klare Abgrenzung */}
       <section className="py-24 px-6 bg-accentGreen text-white rounded-[60px] mx-6 my-12">
         <div className="max-w-7xl mx-auto space-y-16">
-          <div className="text-center space-y-4 max-w-3xl mx-auto">
+          <div className="text-center space-y-4 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">Klare Abgrenzung</h2>
-            <p className="text-xl opacity-70">Ambulante psychiatrische Pflege ist keine Psychotherapie und ersetzt diese nicht.</p>
+            <p className="text-xl opacity-70">
+              Ambulante psychiatrische Pflege ist keine Psychotherapie und ersetzt diese nicht. 
+              Sie versteht sich vielmehr als ergänzende Unterstützung, die Menschen dabei hilft, therapeutische Inhalte im Alltag umzusetzen.
+            </p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
              <div className="bg-white/10 backdrop-blur-md p-10 rounded-[40px] border border-white/10 space-y-6">
                 <h3 className="text-2xl font-bold text-white">Psychotherapie</h3>
                 <p className="opacity-80 leading-relaxed font-bold">
-                  Arbeitet an innerpsychischen Prozessen und findet in der Regel in einer Praxis statt. Fokus liegt auf Ursachenforschung und Symptombearbeitung.
+                  Arbeitet an innerpsychischen Prozessen, Mustern und Zusammenhängen. Findet in der Regel in einer Praxis statt.
                 </p>
              </div>
              <div className="bg-white p-10 rounded-[40px] shadow-2xl text-accentGreen space-y-6">
                 <h3 className="text-2xl font-bold">Psychiatrische Pflege</h3>
                 <p className="text-textDark/70 leading-relaxed font-bold">
-                  Unterstützt die praktische Umsetzung im Alltag. Schafft Voraussetzungen, damit therapeutische Behandlungen wirksam werden können.
+                  Unterstützt die praktische Umsetzung im Alltag und findet im häuslichen und sozialen Umfeld statt.
                 </p>
                 <div className="pt-4 border-t border-gray-100 flex items-center gap-3 text-accentBrown font-bold text-sm uppercase tracking-widest">
                    <div className="w-2 h-2 rounded-full bg-accentBrown"></div>
-                   <span>Ergänzende Angebote</span>
+                   <span>Brücke zum Alltag</span>
                 </div>
              </div>
           </div>

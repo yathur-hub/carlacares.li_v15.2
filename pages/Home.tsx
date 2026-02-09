@@ -88,25 +88,39 @@ const Home: React.FC<HomeProps> = ({ onNavigateReferrers }) => {
       {/* Sektion: Keine Therapie – sondern Unterstützung im Alltag */}
       <section className="py-24 px-6 bg-accentGreen text-white">
         <div className="max-w-7xl mx-auto space-y-16">
-          <div className="text-center space-y-4 max-w-3xl mx-auto">
+          <div className="text-center space-y-4 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">Keine Therapie – sondern Unterstützung im Alltag</h2>
-            <p className="text-xl opacity-70">Ambulante psychiatrische Pflege ist keine Psychotherapie und ersetzt diese nicht.</p>
+            <p className="text-xl opacity-70">
+              Ambulante psychiatrische Pflege ist keine Psychotherapie und ersetzt diese nicht. 
+              Sie versteht sich vielmehr als ergänzende Unterstützung, die Menschen dabei hilft, therapeutische Inhalte im Alltag umzusetzen und Stabilität im täglichen Leben zu fördern.
+            </p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
              <div className="bg-white/10 backdrop-blur-md p-10 rounded-[40px] border border-white/10 space-y-6">
                 <h3 className="text-2xl font-bold text-white">Psychotherapie</h3>
-                <p className="opacity-60 font-bold">Arbeitet an innerpsychischen Prozessen und findet in der Regel in einer Praxis statt.</p>
+                <ul className="space-y-4 opacity-80 font-bold">
+                  <li className="flex gap-3">
+                    <span className="text-accentBrown">•</span>
+                    <span>Arbeitet an innerpsychischen Prozessen, Mustern und Zusammenhängen</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-accentBrown">•</span>
+                    <span>Findet in der Regel in einer therapeutischen Praxis oder Institution statt</span>
+                  </li>
+                </ul>
              </div>
              <div className="bg-white p-10 rounded-[40px] shadow-2xl text-accentGreen space-y-6">
                 <h3 className="text-2xl font-bold">Psychiatrische Pflege</h3>
-                <p className="text-textDark/70 font-bold">Unterstützt die praktische Umsetzung im Alltag.</p>
+                <p className="text-textDark/70 font-bold">
+                  Unterstützt die praktische Umsetzung im Alltag und findet im häuslichen und sozialen Umfeld statt.
+                </p>
                 <ul className="space-y-4 pt-4 border-t border-gray-100">
                    {[
                      "Unterstützung beim Aufbau oder Erhalt einer Tagesstruktur",
-                     "Begleitung im Umgang mit belastenden Symptomen",
-                     "Unterstützung bei der Medikamenteneinnahme",
-                     "Stabilisierung und Orientierung in belastenden Phasen"
+                     "Begleitung im Umgang mit belastenden psychischen Symptomen",
+                     "Unterstützung bei der Medikamenteneinnahme nach ärztlicher Anordnung",
+                     "Stabilisierung, Orientierung und Entlastung in belastenden Lebensphasen"
                    ].map((item, i) => (
                      <li key={i} className="flex gap-4 items-start">
                         <svg className="w-6 h-6 text-accentBrown flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
@@ -114,8 +128,8 @@ const Home: React.FC<HomeProps> = ({ onNavigateReferrers }) => {
                      </li>
                    ))}
                 </ul>
-                <p className="text-sm font-bold pt-4 text-accentBrown">
-                  Oft schafft die Pflege damit erst die Voraussetzungen, damit therapeutische Behandlungen wirksam werden können.
+                <p className="text-sm font-bold pt-4 text-accentBrown leading-relaxed">
+                  Oft schafft die pflegerische Begleitung damit erst die Voraussetzungen, damit therapeutische Behandlungen wirksam greifen und nachhaltig im Alltag verankert werden können.
                 </p>
              </div>
           </div>

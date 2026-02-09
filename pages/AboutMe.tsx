@@ -28,7 +28,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ onNavigateToKontakt }) => {
                 Mein Name ist Carla Vanessa Carcaiso. Ich bin selbständige ambulante psychiatrische Pflegefachfrau und arbeite im Fürstentum Liechtenstein.
               </p>
               <p>
-                Seit über 15 Jahren begleite ich Menschen mit psychischen Erkrankungen in unterschiedlichen Versorgungssettings. Diese langjährige Erfahrung prägt meine Arbeit bis heute: ruhig, fachlich fundiert und alltagsnah.
+                Seit over 15 Jahren begleite ich Menschen mit psychischen Erkrankungen in unterschiedlichen Versorgungssettings. Diese langjährige Erfahrung prägt meine Arbeit bis heute: ruhig, fachlich fundiert und alltagsnah.
               </p>
             </div>
           </div>
@@ -62,9 +62,17 @@ const AboutMe: React.FC<AboutMeProps> = ({ onNavigateToKontakt }) => {
               <p>
                 Über rund sieben Jahre war ich auf der Akut- und Notfallstation der Klinik St. Pirminsberg in Pfäfers tätig, gefolgt von zwei Jahren auf einer Psychotherapiestation am selben Standort. Weitere rund drei Jahre arbeitete ich in der Kinder- und Jugendpsychiatrie der PUK Männedorf. Seit vier Jahren begleite ich Menschen als selbständige ambulante psychiatrische Pflegefachfrau im häuslichen und sozialen Umfeld.
               </p>
-              <p className="bg-accentGreen p-6 rounded-2xl border-l-4 border-accentBrown shadow-lg text-white font-medium">
-                Diese Stationen stehen für ein breites und realistisches Verständnis des psychiatrischen Versorgungsalltags: von akuten Krisen über länger andauernde Belastungssituationen bis hin zu sensiblen Übergangsphasen nach stationären Aufenthalten oder bei instabilen Lebenslagen. Diese Erfahrung erlaubt mir, Situationen fundiert einzuschätzen und Unterstützung dort anzusetzen, wo sie im Alltag tatsächlich Wirkung entfaltet.
-              </p>
+              <div className="bg-accentGreen p-8 rounded-2xl border-l-4 border-accentBrown shadow-lg text-white font-medium space-y-4">
+                <p>
+                  Diese Stationen stehen für ein breites und realistisches Verständnis des psychiatrischen Versorgungsalltags: von akuten Krisen über länger andauernde Belastungssituationen bis hin zu sensiblen Übergangsphasen nach stationären Aufenthalten oder bei instabilen Lebenslagen.
+                </p>
+                <p>
+                  Diese Erfahrung ermöglicht es mir, Situationen differenziert einzuschätzen und Unterstützung dort anzusetzen, wo sie im Alltag tatsächlich Wirkung entfaltet.
+                </p>
+                <p className="text-accentBrown font-bold italic pt-2 border-t border-white/10">
+                  „Mir ist eine Zusammenarbeit auf Augenhöhe wichtig, die Sicherheit gibt und Entwicklung im eigenen Tempo ermöglicht.“
+                </p>
+              </div>
             </div>
           </div>
         </div>
