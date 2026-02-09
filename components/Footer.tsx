@@ -1,9 +1,19 @@
-
 import React from 'react';
 import { Mail, Phone, MapPin, ExternalLink, ShieldCheck } from 'lucide-react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate?: (view: 'home' | 'care' | 'billing' | 'about' | 'referrers' | 'imprint' | 'privacy') => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const logoUrl = "https://raw.githubusercontent.com/yathur-hub/carlacares_BrandAssets/main/hand%20tree.png";
+
+  const handleLegalClick = (e: React.MouseEvent, view: 'imprint' | 'privacy') => {
+    if (onNavigate) {
+      e.preventDefault();
+      onNavigate(view);
+    }
+  };
 
   return (
     <footer className="bg-white border-t border-gray-100 pt-20 pb-10">
@@ -124,8 +134,20 @@ const Footer: React.FC = () => {
           
           <div className="flex items-center space-x-6">
             <nav className="flex space-x-6 text-[10px] font-black uppercase tracking-widest text-textDark/30">
-              <a href="#" className="hover:text-accentBrown transition-colors">Impressum</a>
-              <a href="#" className="hover:text-accentBrown transition-colors">Datenschutz</a>
+              <a 
+                href="#impressum" 
+                onClick={(e) => handleLegalClick(e, 'imprint')}
+                className="hover:text-accentBrown transition-colors"
+              >
+                Impressum
+              </a>
+              <a 
+                href="#datenschutz" 
+                onClick={(e) => handleLegalClick(e, 'privacy')}
+                className="hover:text-accentBrown transition-colors"
+              >
+                Datenschutz
+              </a>
             </nav>
             <div className="hidden sm:flex items-center space-x-2 px-3 py-1 bg-secondary rounded-full border border-gray-100">
               <ShieldCheck className="w-3 h-3 text-accentGreen/40" />

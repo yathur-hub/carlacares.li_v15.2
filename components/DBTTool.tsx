@@ -70,8 +70,13 @@ const DBTTool: React.FC = () => {
   const [showSecondary, setShowSecondary] = useState(false);
   const [agreement, setAgreement] = useState(false);
   const [favorites, setFavorites] = useState<string[]>(() => {
-    const saved = localStorage.getItem('carlacares_dbt_favs');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('carlacares_dbt_favs');
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      console.warn("Could not parse favorites from localStorage", e);
+      return [];
+    }
   });
 
   const scrollRef = useRef<HTMLDivElement>(null);
