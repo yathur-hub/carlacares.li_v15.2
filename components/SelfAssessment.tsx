@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ShieldCheck, ChevronRight, ArrowLeft, RefreshCw, 
-  ClipboardCheck, Heart, Layout, 
+  ClipboardCheck, HeartPulse, Layout, 
   Zap, Users, Anchor, Sun, HelpCircle, BookOpen, 
   Mail, Phone 
 } from 'lucide-react';
@@ -46,9 +46,9 @@ const ALL_QUESTIONS: Question[] = [
   { id: 'ar2', dimensionTitle: 'Anforderungen & Reize', dimensionSubtitle: 'Resilienz', dimensionIcon: <Zap className="w-5 h-5" />, text: 'Fühlen Sie sich von kurzfristigen Änderungen in Ihrem Zeitplan schneller aus der Ruhe gebracht?', options: FREQUENCY_OPTIONS },
   { id: 'ar3', dimensionTitle: 'Anforderungen & Reize', dimensionSubtitle: 'Belastung', dimensionIcon: <Zap className="w-5 h-5" />, text: 'Erleben Sie Ihren Alltag aktuell als eine Aneinanderreihung von Anforderungen?', options: FREQUENCY_OPTIONS },
   // Dimension: Emotions
-  { id: 'eb1', dimensionTitle: 'Emotionale Belastung', dimensionSubtitle: 'Einfluss auf Pläne', dimensionIcon: <Heart className="w-5 h-5" />, text: 'Wie oft beeinflussen Ihre aktuellen Empfindungen die Umsetzung Ihrer täglichen Pläne?', options: FREQUENCY_OPTIONS },
-  { id: 'eb2', dimensionTitle: 'Emotionale Belastung', dimensionSubtitle: 'Innere Unruhe', dimensionIcon: <Heart className="w-5 h-5" />, text: 'In welchem Maße fühlen Sie sich durch innere Unruhe in Ihren Vorhaben eingeschränkt?', options: FREQUENCY_OPTIONS },
-  { id: 'eb3', dimensionTitle: 'Emotionale Belastung', dimensionSubtitle: 'Konzentration', dimensionIcon: <Heart className="w-5 h-5" />, text: 'Wie gut können Sie sich von belastenden Gedanken distanzieren, um sich auf eine Aufgabe zu konzentrieren?', options: AGREEMENT_OPTIONS },
+  { id: 'eb1', dimensionTitle: 'Emotionale Belastung', dimensionSubtitle: 'Einfluss auf Pläne', dimensionIcon: <HeartPulse className="w-5 h-5" />, text: 'Wie oft beeinflussen Ihre aktuellen Empfindungen die Umsetzung Ihrer täglichen Pläne?', options: FREQUENCY_OPTIONS },
+  { id: 'eb2', dimensionTitle: 'Emotionale Belastung', dimensionSubtitle: 'Innere Unruhe', dimensionIcon: <HeartPulse className="w-5 h-5" />, text: 'In welchem Maße fühlen Sie sich durch innere Unruhe in Ihren Vorhaben eingeschränkt?', options: FREQUENCY_OPTIONS },
+  { id: 'eb3', dimensionTitle: 'Emotionale Belastung', dimensionSubtitle: 'Konzentration', dimensionIcon: <HeartPulse className="w-5 h-5" />, text: 'Wie gut können Sie sich von belastenden Gedanken distanzieren, um sich auf eine Aufgabe zu konzentrieren?', options: AGREEMENT_OPTIONS },
   // Dimension: Social
   { id: 'se1', dimensionTitle: 'Soziale Einbindung', dimensionSubtitle: 'Kontakte', dimensionIcon: <Users className="w-5 h-5" />, text: 'Haben Sie Personen in Ihrem Umfeld, mit denen Sie über Alltägliches sprechen können?', options: AGREEMENT_OPTIONS },
   { id: 'se2', dimensionTitle: 'Soziale Einbindung', dimensionSubtitle: 'Teilhabe', dimensionIcon: <Users className="w-5 h-5" />, text: 'Wie oft nehmen Sie derzeit am gesellschaftlichen Leben teil (Hobbys, Treffen, Vereine)?', options: FREQUENCY_OPTIONS },

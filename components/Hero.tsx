@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ShieldCheck, GraduationCap, BriefcaseMedical, Award } from 'lucide-react';
+import { ShieldCheck, GraduationCap, Briefcase, Award } from 'lucide-react';
 import DBTTool from './DBTTool';
 
 interface HeroProps {
@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigateReferrers }) => {
       sub: "Bewilligte Pflegefachperson" 
     },
     { 
-      icon: <BriefcaseMedical className="w-5 h-5" />, 
+      icon: <Briefcase className="w-5 h-5" />, 
       text: "Krankenkassen-Anerkannt",
       sub: "Abrechnung via KVG" 
     },

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronRight, ArrowLeft, RefreshCw, 
-  ShieldAlert, Activity, ClipboardCheck,
+  ShieldCheck, HeartPulse, ClipboardCheck,
   Layout, Zap, Users, Info, Mail, Phone
 } from 'lucide-react';
 
@@ -235,7 +235,7 @@ const DecisionMapTool: React.FC = () => {
         {step === 'result' && (
           <motion.div key="result" custom={direction} variants={variants} initial="enter" animate="center" exit="exit" className="p-8 flex flex-col h-full space-y-6">
             <div className="flex items-center space-x-3 text-accentBrown">
-              <Activity className="w-5 h-5" />
+              <HeartPulse className="w-5 h-5" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em]">Fachliche Einschätzung</span>
             </div>
             
@@ -256,7 +256,7 @@ const DecisionMapTool: React.FC = () => {
 
             {answers.ss >= 2 && (
               <div className="p-4 bg-rose-50 border border-rose-100 rounded-2xl flex items-start space-x-3">
-                 <ShieldAlert className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                 <ShieldCheck className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                  <p className="text-[11px] text-rose-900 font-bold leading-relaxed">
                    Bei erhöhter Instabilität oder Sicherheitsnähe ist eine engmaschige fachliche Einschätzung besonders wichtig. Dieses Tool ersetzt keine Krisenintervention.
                  </p>

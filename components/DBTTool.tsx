@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ShieldAlert, Phone, ArrowLeft, CheckCircle, Activity, ExternalLink, Star, Info, Layers, ChevronRight, X } from 'lucide-react';
+import { ShieldCheck, Phone, ArrowLeft, CheckCircle, HeartPulse, ExternalLink, Star, Info, Layers, ChevronRight, X } from 'lucide-react';
 
 type ToolView = 'disclaimer' | 'assessment' | 'zone' | 'exercise' | 'sequence' | 'emergency' | 'recheck';
 type Zone = 'green' | 'yellow' | 'red' | 'blue';
@@ -161,7 +161,7 @@ const DBTTool: React.FC = () => {
             <div className="flex-grow space-y-5">
               <div className="bg-white/60 backdrop-blur-sm p-6 rounded-[28px] border border-gray-100/50 shadow-sm space-y-4">
                 <div className="flex items-center space-x-2 text-accentGreen opacity-40">
-                  <ShieldAlert className="w-4 h-4" />
+                  <ShieldCheck className="w-4 h-4" />
                   <span className="text-[10px] font-black uppercase tracking-widest">Sicherheitshinweis</span>
                 </div>
                 <div className="text-[13px] text-textDark/80 leading-relaxed space-y-3">
@@ -313,7 +313,7 @@ const DBTTool: React.FC = () => {
               <h3 className="text-2xl font-extrabold text-accentGreen leading-tight">{skillStep.title}</h3>
               <div className="bg-secondary/50 p-8 rounded-[32px] border border-gray-100 relative shadow-sm">
                 <p className="text-lg leading-relaxed text-textDark/80 font-medium">{skillStep.description}</p>
-                <div className="absolute -top-4 -right-4 w-12 h-12 bg-accentBrown rounded-2xl flex items-center justify-center text-white shadow-lg"><Activity className="w-6 h-6" /></div>
+                <div className="absolute -top-4 -right-4 w-12 h-12 bg-accentBrown rounded-2xl flex items-center justify-center text-white shadow-lg"><HeartPulse className="w-6 h-6" /></div>
               </div>
               {skillStep.psychoEdu && (
                 <div className="bg-accentGreen/5 p-6 rounded-[24px] border border-accentGreen/10 flex items-start space-x-4">
