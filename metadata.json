@@ -1,5 +1,5 @@
 {
-  "name": "carlacares.li - Ambulante Psychiatrische Pflege v15.0",
-  "description": "Eine professionelle, ruhige und sachliche Website für die selbständige ambulante psychiatrische Pflegefachfrau Carla Vanessa Carcaiso im Fürstentum Liechtenstein.",
+  "name": "carlacares.li - Ambulante Psychiatrische Pflege v16.0",
+  "description": "Stabile Version mit React 18.3.1 für optimales Vercel-Deployment und Behebung von Peer-Dependency-Konflikten.",
   "requestFramePermissions": []
 }
