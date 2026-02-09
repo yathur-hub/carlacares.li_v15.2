@@ -143,16 +143,11 @@ const DBTTool: React.FC = () => {
   };
 
   const renderView = () => {
-    const logoUrl = "https://raw.githubusercontent.com/yathur-hub/carlacares_BrandAssets/main/hand%20tree.png";
-
     switch (view) {
       case 'disclaimer':
         return (
           <div className="p-8 flex flex-col h-full space-y-8 animate-in fade-in duration-500">
             <div className="flex flex-col items-center text-center space-y-4 pt-4">
-              <div className="w-16 h-16 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center p-3">
-                <img src={logoUrl} alt="Branding Icon" className="w-full h-full object-contain opacity-80" />
-              </div>
               <div className="space-y-2">
                 <h3 className="text-2xl font-bold tracking-tight text-accentGreen leading-tight">
                   Soforthilfe bei psychischer Belastung
