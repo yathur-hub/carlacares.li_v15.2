@@ -43,7 +43,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigateReferrers }) => {
     <section className="bg-white pt-8 md:pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16 md:mb-24">
-          {/* Left Content */}
           <div className="space-y-8 animate-in fade-in slide-in-from-left duration-700">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-extrabold text-accentGreen leading-[1.1] tracking-tight">
@@ -87,7 +86,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigateReferrers }) => {
             </div>
           </div>
 
-          {/* Right Visual: DBT Immediate Help Tool */}
           <div className="relative animate-in fade-in slide-in-from-right duration-1000">
             <div className="bg-secondary rounded-[40px] border border-gray-100 shadow-2xl overflow-hidden min-h-[500px] flex flex-col">
               <DBTTool />
@@ -95,7 +93,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigateReferrers }) => {
           </div>
         </div>
 
-        {/* Trust Bar - New Design with Badges and Icons */}
         <div className="border-t border-gray-100 pt-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {trustSignals.map((signal, index) => (

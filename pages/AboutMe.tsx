@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface AboutMeProps {
@@ -28,7 +27,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ onNavigateToKontakt }) => {
                 Mein Name ist Carla Vanessa Carcaiso. Ich bin selbständige ambulante psychiatrische Pflegefachfrau und arbeite im Fürstentum Liechtenstein.
               </p>
               <p>
-                Seit over 15 Jahren begleite ich Menschen mit psychischen Erkrankungen in unterschiedlichen Versorgungssettings. Diese langjährige Erfahrung prägt meine Arbeit bis heute: ruhig, fachlich fundiert und alltagsnah.
+                Seit über 15 Jahren begleite ich Menschen mit psychischen Erkrankungen in unterschiedlichen Versorgungssettings. Diese langjährige Erfahrung prägt meine Arbeit bis heute: ruhig, fachlich fundiert und alltagsnah.
               </p>
             </div>
           </div>
