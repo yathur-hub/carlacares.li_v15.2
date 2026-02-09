@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { ShieldCheck, GraduationCap, BriefcaseMedical, Award } from 'lucide-react';
 import DBTTool from './DBTTool';
 
 interface HeroProps {
@@ -14,6 +15,29 @@ const Hero: React.FC<HeroProps> = ({ onNavigateReferrers }) => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const trustSignals = [
+    { 
+      icon: <ShieldCheck className="w-5 h-5" />, 
+      text: "Gesundheitsamt FL",
+      sub: "Bewilligte Pflegefachperson" 
+    },
+    { 
+      icon: <BriefcaseMedical className="w-5 h-5" />, 
+      text: "Krankenkassen-Anerkannt",
+      sub: "Abrechnung via KVG" 
+    },
+    { 
+      icon: <GraduationCap className="w-5 h-5" />, 
+      text: "HF Psychiatrie",
+      sub: "Höhere Fachschule" 
+    },
+    { 
+      icon: <Award className="w-5 h-5" />, 
+      text: "LKV Mitglied",
+      sub: "Mitglied LKV" 
+    },
+  ];
 
   return (
     <section className="bg-white pt-8 md:pt-16 pb-12">
@@ -71,13 +95,27 @@ const Hero: React.FC<HeroProps> = ({ onNavigateReferrers }) => {
           </div>
         </div>
 
-        {/* Trust Bar */}
-        <div className="border-t border-gray-100 pt-10">
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-20 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-             <div className="text-sm font-black uppercase tracking-[0.3em] text-accentGreen">Gesundheitsamt FL</div>
-             <div className="text-sm font-black uppercase tracking-[0.3em] text-accentGreen">Krankenkassen-Anerkannt</div>
-             <div className="text-sm font-black uppercase tracking-[0.3em] text-accentGreen">HF Psychiatrie</div>
-             <div className="text-sm font-black uppercase tracking-[0.3em] text-accentGreen">LKV Mitglied</div>
+        {/* Trust Bar - New Design with Badges and Icons */}
+        <div className="border-t border-gray-100 pt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {trustSignals.map((signal, index) => (
+              <div 
+                key={index} 
+                className="flex items-center space-x-4 p-4 bg-secondary/40 rounded-2xl border border-gray-100 hover:border-accentBrown/30 hover:bg-white transition-all duration-300 group cursor-default"
+              >
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-accentBrown shadow-sm border border-gray-50 group-hover:scale-110 transition-transform duration-500">
+                  {signal.icon}
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-accentGreen leading-tight">
+                    {signal.text}
+                  </span>
+                  <span className="text-[10px] text-textDark/50 font-medium">
+                    {signal.sub}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
